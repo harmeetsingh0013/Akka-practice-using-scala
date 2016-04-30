@@ -11,10 +11,6 @@ import com.typesafe.config.ConfigFactory
  */
 object Main extends App{
 
-
-  private val configFile = getClass.getClassLoader.getResource("application.conf").getFile;
-  private val config = ConfigFactory.parseFile(new File(configFile ))
-
-  val system = ActorSystem("SimpleClientServer", config)
+  val system = ActorSystem("SimpleClientServer")
   system.actorOf(Props[AkkadmeyDB], name = "akkademy-db")
 }

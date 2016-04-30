@@ -9,6 +9,8 @@ scalaVersion := "2.11.7"
 // Change this to another test framework if you prefer
 libraryDependencies += "org.scalatest" %% "scalatest" % "2.2.4" % "test"
 
+javaOptions ++= Seq("-Xmx512M", "-Xms256M", "-XX:MaxPermSize=512M")
+
 //  Depedencies
 libraryDependencies ++= Seq(
   "com.typesafe.akka" % "akka-actor_2.11" % "2.3.3",
@@ -19,9 +21,9 @@ libraryDependencies ++= Seq(
   "com.novocode" % "junit-interface" % "0.10" % "test"
 )
 
-mappings in (Compile, packageBin) ~= { _.filterNot { case (_, name) =>
+/*mappings in (Compile, packageBin) ~= { _.filterNot { case (_, name) =>
   Seq("application.conf").contains(name)
-}}
+}}*/
 
 pomExtra :=
   <developers>
